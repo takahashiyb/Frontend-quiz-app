@@ -18,7 +18,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .header-page {
@@ -92,6 +91,6 @@ main {
   text-align: start;
 }
 
-.header-page-quiz {
+.header-with-category {
   grid-template-columns: min-content auto;
 }

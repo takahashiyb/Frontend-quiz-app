@@ -1,0 +1,14 @@
+body {
+  padding: 50px;
+}
+
+.wrapper-switch-color-mode {
+  div {
+    background-color: blueviolet;
+    border: 0.1rem blueviolet solid;
+
+    div {
+      background-color: white;
+    }
+  }
+}

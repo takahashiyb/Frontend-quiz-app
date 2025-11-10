@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/styling.css" />
+
+    <title>Frontend Mentor | Frontend quiz app</title>
+  </head>
+  <body>
+    <header class="header-page header-page-quiz">
+      <div class="wrapper-display-category">
+        <img src="../assets/images/icon-html.svg" alt="" />
+        <h1>HTML</h1>
+      </div>
+      <div
+        id="wrapper-switch-color-mode"
+        class="wrapper-switch-color-mode"
+        role="switch"
+        tabindex="0"
+      >
+        <img src="../assets/images/icon-sun-dark.svg" alt="" />
+        <div class="dark">
+          <div></div>
+        </div>
+        <img src="../assets/images/icon-moon-dark.svg" alt="" />
+      </div>
+    </header>
+    <main class="wrapper-main-content">
+      <header>
+        <p>Question <span>6</span> out of <span>10</span></p>
+        <h2>
+          Which of these color contrast ratios defines the minimum WCAG 2.1
+          Level AA requirement for normal text?
+        </h2>
+        <div class="bar-progress" role="progressbar"></div>
+      </header>
+      <div>
+        <fieldset class="wrapper-button-choice" role="radiogroup">
+          <button class="button-choice" role="radio" name="button-choice">
+            <p>A</p>
+            <p class="choice-info">1</p>
+          </button>
+          <button class="button-choice" role="radio" name="button-choice">
+            <p>B</p>
+            <p class="choice-info">1</p>
+          </button>
+          <button class="button-choice" role="radio" name="button-choice">
+            <p>C</p>
+            <p class="choice-info">1</p>
+          </button>
+          <button class="button-choice" role="radio" name="button-choice">
+            <p>D</p>
+            <p class="choice-info">1</p>
+          </button>
+        </fieldset>
+
+        <button type="button">Submit Answer</button>
+      </div>
+    </main>
+  </body>
+</html>

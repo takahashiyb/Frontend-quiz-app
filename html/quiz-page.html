@@ -37,7 +37,10 @@
     </header>
     <main class="wrapper-main-content">
       <header>
-        <p>Question <span>6</span> out of <span>10</span></p>
+        <p>
+          Question <span id="question-current">6</span> out of
+          <span id="question-count">10</span>
+        </p>
         <h2>
           Which of these color contrast ratios defines the minimum WCAG 2.1
           Level AA requirement for normal text?
@@ -45,27 +48,32 @@
         <div class="bar-progress" role="progressbar"></div>
       </header>
       <div>
-        <fieldset class="wrapper-button-choice" role="radiogroup">
-          <button class="button-choice" role="radio" name="button-choice">
-            <p>A</p>
-            <p class="choice-info">1</p>
+        <div
+          id="wrapper-button-choice"
+          class="wrapper-button-choice"
+          role="radiogroup"
+        >
+          <button id="button-choice-0" class="button-choice" role="radio">
+            <p class="letter-button-choice">A</p>
+            <p data-selected="false" class="choice-info">1</p>
           </button>
-          <button class="button-choice" role="radio" name="button-choice">
-            <p>B</p>
-            <p class="choice-info">1</p>
+          <button id="button-choice-1" class="button-choice" role="radio">
+            <p class="letter-button-choice">B</p>
+            <p data-selected="false" class="choice-info">1</p>
           </button>
-          <button class="button-choice" role="radio" name="button-choice">
-            <p>C</p>
-            <p class="choice-info">1</p>
+          <button id="button-choice-2" class="button-choice" role="radio">
+            <p class="letter-button-choice">C</p>
+            <p data-selected="false" class="choice-info">1</p>
           </button>
-          <button class="button-choice" role="radio" name="button-choice">
-            <p>D</p>
-            <p class="choice-info">1</p>
+          <button id="button-choice-3" class="button-choice" role="radio">
+            <p class="letter-button-choice">D</p>
+            <p data-selected="false" class="choice-info">1</p>
           </button>
-        </fieldset>
+        </div>
 
         <button type="button">Submit Answer</button>
       </div>
     </main>
+    <script src="../js/quiz-page.js"></script>
   </body>
 </html>

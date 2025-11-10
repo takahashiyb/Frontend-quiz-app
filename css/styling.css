@@ -12,3 +12,13 @@ body {
     }
   }
 }
+
+.wrapper-display-category {
+  cursor: pointer;
+}
+
+.button-choice[data-selected="true"] {
+  .letter-button-choice {
+    background-color: red;
+  }
+}

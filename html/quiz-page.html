@@ -18,7 +18,7 @@
   </head>
   <body>
     <header class="header-page header-with-category">
-      <div class="wrapper-display-category">
+      <div id="wrapper-display-category" class="wrapper-display-category">
         <img src="../assets/images/icon-html.svg" alt="" />
         <h1 class="font-color-1">HTML</h1>
       </div>
@@ -36,8 +36,8 @@
       </div>
     </header>
     <main class="wrapper-main-content">
-      <header>
-        <p class="font-color-2">
+      <header class="container-question">
+        <p class="question-number font-color-2">
           Question <span id="question-current">6</span> out of
           <span id="question-count">10</span>
         </p>
@@ -74,8 +74,10 @@
         </div>
 
         <div>
-          <button id="submit-button" type="button">Submit Answer</button>
-          <span hidden inert id="no-answer"
+          <button id="submit-button" class="button-submit" type="button">
+            Submit Answer
+          </button>
+          <span hidden inert id="no-answer" class="no-answer"
             ><img src="../assets/images/icon-error.svg" alt="" />Please select
             an answer</span
           >

@@ -45,13 +45,13 @@ html {
   --font-4-medium: 500 1.75rem/1 "Rubik";
   --font-5-medium: 500 1.5rem/1.5 "Rubik";
   --font-5-regular: 500 1.5rem/1.5 "Rubik";
-  --font-6-italic: italic 500 1.25rem/1.5 "Rubik";
+  --font-6-italic: italic 300 1.25rem/1.5 "Rubik";
   --font-1-medium-mobile: 500 5.5rem/1 "Rubik";
   --font-2-medium-mobile: 500 2.5rem/1 "Rubik";
   --font-2-light-mobile: 300 2.5rem/1 "Rubik";
   --font-3-medium-mobile: 500 1.25rem/1.2 "Rubik";
   --font-4-medium-mobile: 500 1.125rem/1 "Rubik";
-  --font-5-italic-mobile: italic 500 0.875rem/1.5 "Rubik";
+  --font-5-italic-mobile: italic 300 0.875rem/1.5 "Rubik";
 
   --spacing-0100: 0.5rem;
   --spacing-0200: 1rem;
@@ -67,6 +67,7 @@ html {
   /* light mode */
   --background-color-body-light: var(--grey-50);
   --background-color-button-choice-light: var(--white);
+  --color-bg-bar-progress-light: var(--white);
 
   --justify-content-switch-theme-light: start;
 
@@ -76,6 +77,7 @@ html {
   /* dark mode */
   --background-color-body-dark: var(--blue-900);
   --background-color-button-choice-dark: var(--blue-850);
+  --color-bg-bar-progress-dark: var(--blue-850);
 
   --justify-content-switch-theme-dark: end;
 
@@ -91,6 +93,7 @@ body {
   --justify-content-switch-theme: var(--justify-content-switch-theme-light);
   --font-color-1: var(--font-color-1-light);
   --font-color-2: var(--font-color-2-light);
+  --color-bg-bar-progress: var(--color-bg-bar-progress-light);
 
   background-color: var(--background-color-body);
 }
@@ -101,6 +104,7 @@ body.dark {
   --justify-content-switch-theme: var(--justify-content-switch-theme-dark);
   --font-color-1: var(--font-color-1-dark);
   --font-color-2: var(--font-color-2-dark);
+  --color-bg-bar-progress: var(--color-bg-bar-progress-dark);
 }
 
 .button-choice,
@@ -128,6 +132,25 @@ body.dark {
   }
 }
 
+/* Progress Bar */
+
+.bar-progress {
+  --progress: 0%;
+
+  height: 16px;
+  width: 100%;
+  background-color: var(--color-bg-bar-progress);
+  border-radius: 9em;
+  padding: calc(var(--spacing-0100) / 2);
+
+  div {
+    height: 100%;
+    width: var(--progress);
+    border-radius: 9em;
+    background-color: var(--purple-600);
+  }
+}
+
 /* For Styling */
 
 body {
@@ -135,9 +158,14 @@ body {
 }
 
 .wrapper-switch-color-mode {
+  img {
+    filter: brightness(100);
+    height: 100%;
+  }
+
   div {
-    background-color: blueviolet;
-    border: 0.1rem blueviolet solid;
+    background-color: var(--purple-600);
+    border: 0.1rem var(--purple-600) solid;
 
     div {
       background-color: white;
@@ -145,14 +173,50 @@ body {
   }
 }
 
-.wrapper-display-category {
+.button-choice {
+  border-radius: 12px;
   cursor: pointer;
+  border: none;
+}
+
+.button-choice,
+.wrapper-display-category {
+  img,
+  .letter-button-choice {
+    height: var(--spacing-0500);
+    width: var(--spacing-0500);
+    border-radius: 6px;
+    background-color: var(--img-bg-color);
+    padding: var(--spacing-0100);
+  }
+}
+
+.button-choice {
+  --img-bg-color: var(--grey-50);
+}
+
+.button-choice.html,
+.wrapper-display-category.html {
+  --img-bg-color: var(--orange-050);
+}
+
+.button-choice.css,
+.wrapper-display-category.css {
+  --img-bg-color: var(--green-100);
+}
+
+.button-choice.javascript,
+.wrapper-display-category.javascript {
+  --img-bg-color: var(--blue-050);
+}
+
+.button-choice.accessibility,
+.wrapper-display-category.accessibility {
+  --img-bg-color: var(--purple-100);
 }
 
 .button-choice[data-selected="true"] {
-  .letter-button-choice {
-    background-color: red;
-  }
+  border: 3px solid var(--purple-600);
 }
 
 .button-choice.correct {
@@ -173,18 +237,74 @@ body {
   }
 }
 
-/* Progress Bar */
-
-.bar-progress {
-  --progress: 0%;
-
-  height: 20px;
+.button-submit {
+  background-color: var(--purple-600);
+  color: var(--white);
   width: 100%;
-  background-color: var(--white);
+  padding: var(--spacing-0200);
+  border-radius: 15px;
+  border: none;
+}
 
-  div {
-    height: 20px;
-    width: var(--progress);
-    background-color: var(--purple-600);
+.button-submit.inactive {
+  background-color: color-mix(in srgb, var(--purple-600) 50%, white);
+}
+
+.no-answer {
+  color: var(--red-500);
+}
+
+/* Font */
+
+.pre-text {
+  font: var(--font-2-light-mobile);
+}
+
+h2 {
+  font: var(--font-3-medium-mobile);
+}
+
+.section-main-header h1 {
+  font: var(--font-2-medium-mobile);
+}
+
+.post-text,
+.question-number {
+  font: var(--font-5-italic-mobile);
+}
+
+.header-page h1,
+.button-choice,
+.button-submit,
+.no-answer {
+  font: var(--font-4-medium-mobile);
+}
+
+@media (min-width: 51.56rem) {
+  .pre-text {
+    font: var(--font-2-light);
+  }
+
+  .section-main-header h1 {
+    font: var(--font-2-medium);
+  }
+
+  h2 {
+    font: var(--font-3-medium);
+  }
+
+  .post-text,
+  .question-number {
+    font: var(--font-6-italic);
+  }
+
+  .button-choice,
+  .header-page h1,
+  .button-submit {
+    font: var(--font-4-medium);
+  }
+
+  .no- {
+    font: var(--font-5-regular);
   }
 }

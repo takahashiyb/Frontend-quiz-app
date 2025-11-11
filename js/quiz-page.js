@@ -133,9 +133,11 @@ function markAnswerSubmitted() {
     .dataset.choice;
 
   if (!elementChoiceName) {
+    const button = document.getElementById("submit-button");
     const elementError = document.getElementById("no-answer");
     elementError.removeAttribute("hidden");
     elementError.removeAttribute("inert");
+    button.classList.add("inactive");
     return;
   }
 

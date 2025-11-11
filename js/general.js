@@ -9,6 +9,10 @@ export function displayCategoryHeader(object) {
 
   title.innerHTML = object.title;
 
+  const header = document.getElementById("wrapper-display-category");
+
+  header.classList.add(object.title.toLowerCase());
+
   const titleImage = document.querySelector(".header-page img");
 
   titleImage.src = `.${object.icon}`;

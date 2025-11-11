@@ -17,9 +17,8 @@ function loadCategories() {
         const container = document.getElementById("container-display-category");
 
         container.innerHTML += `
-      <section class="button-choice"
-      id="category-${title.toLowerCase()}" 
-      class="wrapper-display-category" 
+      <section class="button-choice ${title.toLowerCase()}"
+      id="category-${title.toLowerCase()}"  
       role="link" 
       data-category="${title.toLowerCase()}">
         <img src="${icon}" alt="icon ${title.toLowerCase()}" />

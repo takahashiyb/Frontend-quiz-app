@@ -50,7 +50,6 @@ function loadPage() {
     })
     .then(() => {
       loadQuestion();
-      assignButtonSubmitAnswer();
     });
 }
 
@@ -70,25 +69,38 @@ function loadQuestion() {
 
   copyOptions = shuffle(copyOptions);
 
+  const fieldset = document.getElementById("wrapper-button-choice");
+
+  fieldset.dataset.choice = "";
+
   for (let i = 0; i < 4; i++) {
-    const fieldset = document.getElementById("wrapper-button-choice");
-
-    fieldset.dataset.choice = "";
-
     const button = document.getElementById(`button-choice-${i}`);
 
     button.value = copyOptions[i];
 
     button.dataset.selected = "false";
 
+    button.classList.remove("correct", "wrong");
+
+    button.removeAttribute("inert");
+
+    const img = button.querySelector("img");
+
+    if (img) {
+      button.removeChild(img);
+    }
+
     const info = document.querySelector(`#button-choice-${i} .choice-info`);
+
     info.innerHTML = copyOptions[i];
 
     const submit = document.getElementById("submit-button");
 
-    submit.setAttribute("inert", "");
-
     button.addEventListener("click", function () {
+      const elementError = document.getElementById("no-answer");
+      elementError.setAttribute("hidden", "");
+      elementError.setAttribute("inert", "");
+
       const fieldset = document.getElementById("wrapper-button-choice");
 
       const previousName = fieldset.dataset.choice;
@@ -106,27 +118,78 @@ function loadQuestion() {
       submit.removeAttribute("inert");
     });
   }
+
+  assignButtonSubmitAnswer();
 }
 
 function assignButtonSubmitAnswer() {
   const button = document.getElementById("submit-button");
-  button.addEventListener("click", () => {
-    const elementChoiceName = document.getElementById("wrapper-button-choice")
-      .dataset.choice;
+  button.removeEventListener("click", loadQuestion);
+  button.addEventListener("click", markAnswerSubmitted);
+}
 
-    const choice = document.getElementById(elementChoiceName).value;
+function markAnswerSubmitted() {
+  const elementChoiceName = document.getElementById("wrapper-button-choice")
+    .dataset.choice;
 
-    const answer = questionsArray[current].answer;
+  if (!elementChoiceName) {
+    const elementError = document.getElementById("no-answer");
+    elementError.removeAttribute("hidden");
+    elementError.removeAttribute("inert");
+    return;
+  }
 
-    if (choice === answer) {
-      score++;
-    }
+  const allChoices = document.querySelectorAll(".button-choice");
 
-    current++;
-    if (current < 10) {
-      loadQuestion();
-    } else {
-      window.location = `./score-page.html?score=${score}&key=${key}&${sendThemePageExit()}`;
+  const answer = questionsArray[current].answer;
+
+  let elementAnswer;
+
+  allChoices.forEach((element) => {
+    element.setAttribute("inert", "");
+    if (element.value === answer) {
+      elementAnswer = element;
     }
   });
+
+  const elementChoice = document.getElementById(elementChoiceName);
+
+  const choice = elementChoice.value;
+
+  elementAnswer.classList.add("correct");
+
+  const elementCorrectImage = document.createElement("img");
+  elementCorrectImage.setAttribute("src", "../assets/images/icon-correct.svg");
+  elementCorrectImage.setAttribute("alt", "icon correct");
+
+  elementAnswer.appendChild(elementCorrectImage);
+
+  if (choice === answer) {
+    score++;
+  } else {
+    elementChoice.classList.add("wrong");
+
+    const elementIncorrectImage = document.createElement("img");
+    elementIncorrectImage.setAttribute(
+      "src",
+      "../assets/images/icon-incorrect.svg"
+    );
+    elementIncorrectImage.setAttribute("alt", "icon incorrect");
+
+    elementChoice.appendChild(elementIncorrectImage);
+  }
+
+  current++;
+  const button = document.getElementById("submit-button");
+  if (current < 10) {
+    button.innerHTML = "Next Question";
+    button.removeEventListener("click", markAnswerSubmitted);
+    button.addEventListener("click", loadQuestion);
+  } else {
+    button.innerHTML = "Check Score";
+    button.removeEventListener("click", markAnswerSubmitted);
+    button.addEventListener("click", () => {
+      window.location = `./score-page.html?score=${score}&key=${key}&theme=${sendThemePageExit()}`;
+    });
+  }
 }

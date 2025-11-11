@@ -65,7 +65,7 @@ main {
 
 .button-choice {
   display: grid;
-  grid-template-columns: min-content auto;
+  grid-template-columns: min-content auto min-content;
 }
 
 .choice-info {

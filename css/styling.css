@@ -154,3 +154,21 @@ body {
     background-color: red;
   }
 }
+
+.button-choice.correct {
+  border: 3px solid var(--green-500);
+
+  .letter-button-choice {
+    background-color: var(--green-500);
+    color: var(--white);
+  }
+}
+
+.button-choice.wrong {
+  border: 3px solid var(--red-500);
+
+  .letter-button-choice {
+    background-color: var(--red-500);
+    color: var(--white);
+  }
+}

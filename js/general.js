@@ -4,8 +4,6 @@ const param = new URLSearchParams(query);
 
 const theme = param.get("theme");
 
-console.log(query);
-
 export function displayCategoryHeader(object) {
   const title = document.querySelector("h1");
 

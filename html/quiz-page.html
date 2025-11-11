@@ -20,7 +20,7 @@
     <header class="header-page header-with-category">
       <div class="wrapper-display-category">
         <img src="../assets/images/icon-html.svg" alt="" />
-        <h1>HTML</h1>
+        <h1 class="font-color-1">HTML</h1>
       </div>
       <div
         id="wrapper-switch-color-mode"
@@ -71,7 +71,13 @@
           </button>
         </div>
 
-        <button id="submit-button" type="button">Submit Answer</button>
+        <div>
+          <button id="submit-button" type="button">Submit Answer</button>
+          <span hidden inert id="no-answer"
+            ><img src="../assets/images/icon-error.svg" alt="" />Please select
+            an answer</span
+          >
+        </div>
       </div>
     </main>
     <script src="../js/quiz-page.js" type="module"></script>

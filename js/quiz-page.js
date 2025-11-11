@@ -63,11 +63,6 @@ function loadQuestion() {
   const questionDetail = document.querySelector("h2");
   questionDetail.innerHTML = questionsArray[current].question;
 
-  const percent = (current / questionsArray.length) * 100;
-
-  const bar = document.getElementById("bar-progress");
-  bar.style.setProperty("--progress", `${percent}%`);
-
   const options = questionsArray[current].options;
 
   let copyOptions = [...options];
@@ -186,6 +181,12 @@ function markAnswerSubmitted() {
 
   current++;
   const button = document.getElementById("submit-button");
+
+  const percent = (current / questionsArray.length) * 100;
+
+  const bar = document.getElementById("bar-progress");
+  bar.style.setProperty("--progress", `${percent}%`);
+
   if (current < 10) {
     button.innerHTML = "Next Question";
     button.removeEventListener("click", markAnswerSubmitted);

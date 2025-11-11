@@ -1,11 +1,10 @@
-import { displayCategoryHeader } from "./general.js";
+import { displayCategoryHeader, sendThemePageExit } from "./general.js";
 
 const query = window.location.search;
 
 const param = new URLSearchParams(query);
 
 const key = param.get("key");
-const theme = param.get("theme");
 
 let current = 0;
 
@@ -127,7 +126,7 @@ function assignButtonSubmitAnswer() {
     if (current < 10) {
       loadQuestion();
     } else {
-      window.location = `./score-page.html?score=${score}&key=${key}&${theme}`;
+      window.location = `./score-page.html?score=${score}&key=${key}&${sendThemePageExit()}`;
     }
   });
 }

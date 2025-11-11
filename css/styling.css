@@ -1,3 +1,135 @@
+@font-face {
+  font-family: "Rubik";
+  src: url("../assets/fonts/Rubik-VariableFont_wght.ttf");
+}
+
+/* Reset */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+/* Variables */
+
+:root {
+  --white: rgb(255, 255, 255);
+  --black: rgb(0, 0, 0);
+  --grey-500: rgb(98, 108, 127);
+  --grey-50: rgb(244, 246, 250);
+  --blue-950: rgb(45, 57, 73);
+  --blue-900: rgb(49, 62, 81);
+  --blue-850: rgb(59, 77, 102);
+  --blue-500: rgb(48, 106, 255);
+  --blue-300: rgb(171, 193, 255);
+  --blue-100: rgb(237, 241, 249);
+  --blue-050: rgb(235, 240, 255);
+  --green-500: rgb(47, 216, 135);
+  --green-100: rgb(224, 253, 239);
+  --purple-600: rgb(167, 41, 245);
+  --purple-100: rgb(246, 231, 255);
+  --orange-500: rgb(255, 126, 53);
+  --orange-050: rgb(255, 245, 237);
+  --red-500: rgb(238, 84, 84);
+
+  --font-1-medium: 500 9rem/1 "Rubik";
+  --font-2-medium: 500 4rem/1 "Rubik";
+  --font-2-light: 300 4rem/1 "Rubik";
+  --font-3-medium: 500 2.25rem/1.2 "Rubik";
+  --font-4-medium: 500 1.75rem/1 "Rubik";
+  --font-5-medium: 500 1.5rem/1.5 "Rubik";
+  --font-5-regular: 500 1.5rem/1.5 "Rubik";
+  --font-6-italic: italic 500 1.25rem/1.5 "Rubik";
+  --font-1-medium-mobile: 500 5.5rem/1 "Rubik";
+  --font-2-medium-mobile: 500 2.5rem/1 "Rubik";
+  --font-2-light-mobile: 300 2.5rem/1 "Rubik";
+  --font-3-medium-mobile: 500 1.25rem/1.2 "Rubik";
+  --font-4-medium-mobile: 500 1.125rem/1 "Rubik";
+  --font-5-italic-mobile: italic 500 0.875rem/1.5 "Rubik";
+
+  --spacing-0100: 0.5rem;
+  --spacing-0200: 1rem;
+  --spacing-0300: 1.5rem;
+  --spacing-0400: 2rem;
+  --spacing-0500: 2.5rem;
+  --spacing-0600: 3rem;
+  --spacing-0800: 4rem;
+  --spacing-1600: 8rem;
+  --spacing-1800: 9rem;
+  --spacing-2300: 11.5rem;
+
+  /* light mode */
+  --background-color-body-light: var(--grey-50);
+  --background-color-button-choice-light: var(--white);
+
+  --justify-content-switch-theme-light: start;
+
+  --font-color-1-light: var(--blue-900);
+  --font-color-2-light: var(--grey-500);
+
+  /* dark mode */
+  --background-color-body-dark: var(--blue-900);
+  --background-color-button-choice-dark: var(--blue-850);
+
+  --justify-content-switch-theme-dark: end;
+
+  --font-color-1-dark: var(--white);
+  --font-color-2-dark: var(--blue-300);
+}
+
+/* For Theme Styling */
+
+body {
+  --background-color-body: var(--background-color-body-light);
+  --background-color-button-choice: var(--background-color-button-choice-light);
+  --justify-content-switch-theme: var(--justify-content-switch-theme-light);
+  --font-color-1: var(--font-color-1-light);
+  --font-color-2: var(--font-color-2-light);
+
+  background-color: var(--background-color-body);
+}
+
+body.dark {
+  --background-color-body: var(--background-color-body-dark);
+  --background-color-button-choice: var(--background-color-button-choice-dark);
+  --justify-content-switch-theme: var(--justify-content-switch-theme-dark);
+  --font-color-1: var(--font-color-1-dark);
+  --font-color-2: var(--font-color-2-dark);
+}
+
+.button-choice,
+.container-display-score {
+  background-color: var(--background-color-button-choice);
+}
+
+.font-color-1,
+.button-choice {
+  color: var(--font-color-1);
+}
+
+.font-color-2 {
+  color: var(--font-color-2);
+}
+
+.letter-button-choice {
+  background-color: var(--grey-50);
+  color: var(--grey-500);
+}
+
+.wrapper-switch-color-mode {
+  div {
+    justify-content: var(--justify-content-switch-theme);
+  }
+}
+
+/* For Styling */
+
 body {
   padding: 50px;
 }
@@ -16,7 +148,8 @@ body {
 .wrapper-display-category {
   cursor: pointer;
 }
-"&lt!-- this is a comment --&gt" .button-choice[data-selected="true"] {
+
+.button-choice[data-selected="true"] {
   .letter-button-choice {
     background-color: red;
   }

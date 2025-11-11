@@ -1,17 +1,4 @@
-/* Reset */
-
-* {
-  margin: 0px;
-  padding: 0px;
-  word-wrap: break-word;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 16px;
-}
-
-/* Default */
+/* For centering */
 
 body {
   height: 100vh;
@@ -45,12 +32,6 @@ body {
       height: 100%;
       aspect-ratio: 1;
     }
-  }
-}
-
-.wrapper-switch-color-mode.light {
-  div {
-    justify-content: left;
   }
 }
 

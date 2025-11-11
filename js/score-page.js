@@ -1,4 +1,4 @@
-import { displayCategoryHeader } from "./general.js";
+import { displayCategoryHeader, sendThemePageExit } from "./general.js";
 
 const query = window.location.search;
 
@@ -7,8 +7,6 @@ const param = new URLSearchParams(query);
 const score = param.get("score");
 
 const key = param.get("key");
-
-const theme = param.get("theme");
 
 const indicatorScore = document.getElementById("indicator-score");
 
@@ -36,6 +34,6 @@ function delegateButtonPlayAgain() {
   const button = document.getElementById("button-play-again");
 
   button.addEventListener("click", () => {
-    window.location = `../index.html?theme=${theme}`;
+    window.location = `../index.html?theme=${sendThemePageExit()}`;
   });
 }

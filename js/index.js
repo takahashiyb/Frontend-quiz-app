@@ -1,12 +1,4 @@
-const query = window.location.search;
-
-const param = new URLSearchParams(query);
-
-const score = param.get("score");
-
-const key = param.get("key");
-
-const theme = param.get("theme");
+import { sendThemePageExit } from "./general.js";
 
 loadCategories();
 
@@ -25,13 +17,13 @@ function loadCategories() {
         const container = document.getElementById("container-display-category");
 
         container.innerHTML += `
-      <section
+      <section class="button-choice"
       id="category-${title.toLowerCase()}" 
       class="wrapper-display-category" 
       role="link" 
       data-category="${title.toLowerCase()}">
         <img src="${icon}" alt="icon ${title.toLowerCase()}" />
-        <span>${title}</span>
+        <span class="font-color-1">${title}</span>
       </section>
       `;
       });
@@ -43,10 +35,8 @@ function loadCategories() {
           `category-${title.toLowerCase()}`
         );
 
-        section.style.background = "red";
-
         section.addEventListener("click", () => {
-          this.window.location.href = `./html/quiz-page.html?key=${title.toLowerCase()}&theme=dark`;
+          window.location.href = `./html/quiz-page.html?key=${title.toLowerCase()}&theme=${sendThemePageExit()}`;
         });
       });
     });

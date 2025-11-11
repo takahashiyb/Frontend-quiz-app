@@ -63,6 +63,11 @@ function loadQuestion() {
   const questionDetail = document.querySelector("h2");
   questionDetail.innerHTML = questionsArray[current].question;
 
+  const percent = (current / questionsArray.length) * 100;
+
+  const bar = document.getElementById("bar-progress");
+  bar.style.setProperty("--progress", `${percent}%`);
+
   const options = questionsArray[current].options;
 
   let copyOptions = [...options];

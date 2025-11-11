@@ -172,3 +172,19 @@ body {
     color: var(--white);
   }
 }
+
+/* Progress Bar */
+
+.bar-progress {
+  --progress: 0%;
+
+  height: 20px;
+  width: 100%;
+  background-color: var(--white);
+
+  div {
+    height: 20px;
+    width: var(--progress);
+    background-color: var(--purple-600);
+  }
+}

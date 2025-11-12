@@ -75,6 +75,8 @@ html {
   --font-color-1-light: var(--blue-900);
   --font-color-2-light: var(--grey-500);
 
+  --box-shadow-light: rgb(138 138 156/ 0.2);
+
   /* dark mode */
   --background-color-body-dark: var(--blue-900);
   --background-color-button-choice-dark: var(--blue-850);
@@ -85,6 +87,8 @@ html {
 
   --font-color-1-dark: var(--white);
   --font-color-2-dark: var(--blue-300);
+
+  --box-shadow-dark: transparent;
 }
 
 /* For Theme Styling */
@@ -99,6 +103,8 @@ body {
   --font-color-2: var(--font-color-2-light);
   --color-bg-bar-progress: var(--color-bg-bar-progress-light);
 
+  --box-shadow: var(--box-shadow-light);
+
   background-color: var(--background-color-body);
 }
 
@@ -111,6 +117,8 @@ body.dark {
   --font-color-1: var(--font-color-1-dark);
   --font-color-2: var(--font-color-2-dark);
   --color-bg-bar-progress: var(--color-bg-bar-progress-dark);
+
+  --box-shadow: var(--box-shadow-dark);
 }
 
 .button-choice,
@@ -139,6 +147,12 @@ body.dark {
   }
 }
 
+.button-choice,
+.bar-progress,
+.container-display-score {
+  box-shadow: 2px 2px 11px var(--box-shadow);
+}
+
 /* Progress Bar */
 
 .bar-progress {
@@ -158,9 +172,11 @@ body.dark {
   }
 }
 
-/* For Styling */
+/* Theme Switch */
 
 .wrapper-switch-color-mode {
+  cursor: pointer;
+
   img {
     filter: switch-color-img;
     height: 100%;
@@ -176,9 +192,12 @@ body.dark {
   }
 }
 
+/* For Styling */
+
 .button-choice {
   cursor: pointer;
   border: none;
+  --img-bg-color: var(--grey-50);
 }
 
 .button-choice,
@@ -191,10 +210,6 @@ body.dark {
     background-color: var(--img-bg-color);
     padding: var(--spacing-0100);
   }
-}
-
-.button-choice {
-  --img-bg-color: var(--grey-50);
 }
 
 .button-choice.html,
@@ -246,6 +261,7 @@ body.dark {
   padding: var(--spacing-0200);
   border-radius: 15px;
   border: none;
+  cursor: pointer;
 }
 
 .button-submit.inactive {
@@ -258,15 +274,11 @@ body.dark {
 
 /* Font */
 
-.score {
-  font: var(--font-1-medium-mobile);
-}
-
 .pre-text {
   font: var(--font-2-light-mobile);
 }
 
-h2 {
+.page-quiz-h2 {
   font: var(--font-3-medium-mobile);
 }
 
@@ -280,12 +292,15 @@ h2 {
   font: var(--font-5-italic-mobile);
 }
 
+.score {
+  font: var(--font-1-medium-mobile);
+}
+
 .score-total {
   font: var(--font-4-medium-mobile);
   font-weight: 300;
 }
 
-.header-page h1,
 .button-choice,
 .button-submit,
 .no-answer,
@@ -294,8 +309,7 @@ h2 {
 }
 
 @media (min-width: 51.56rem) {
-  .pre-text,
-  .category-name {
+  .pre-text {
     font: var(--font-2-light);
   }
 
@@ -303,7 +317,7 @@ h2 {
     font: var(--font-2-medium);
   }
 
-  h2 {
+  .page-quiz-h2 {
     font: var(--font-3-medium);
   }
 
@@ -313,12 +327,12 @@ h2 {
   }
 
   .button-choice,
-  .header-page h1,
+  .category-name,
   .button-submit {
     font: var(--font-4-medium);
   }
 
-  .no- {
+  .no-answer {
     font: var(--font-5-regular);
   }
 }

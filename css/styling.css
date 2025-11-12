@@ -232,8 +232,13 @@ body.dark {
   --img-bg-color: var(--purple-100);
 }
 
-.button-choice[data-selected="true"] {
+.button-choice[data-selected="true"],
+.button-choice:hover {
   border: 3px solid var(--purple-600);
+}
+
+.button-choice:focus-visible {
+  outline: 3px solid var(--purple-600);
 }
 
 .button-choice.correct {
@@ -266,6 +271,10 @@ body.dark {
 
 .button-submit.inactive {
   background-color: color-mix(in srgb, var(--purple-600) 50%, white);
+}
+
+.button-submit:focus-visible {
+  outline: 3px solid var(--purple-600);
 }
 
 .no-answer {

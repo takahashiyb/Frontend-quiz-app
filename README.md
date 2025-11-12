@@ -43,8 +43,8 @@ Your users should be able to:
 
 ### Links
 
-- Solution URL: [click here for GitHub repository](https://github.com/takahashiyb/)
-- Live Site URL: [click here for Live Site](https://takahashiyb.github.io/)
+- Solution URL: [click here for GitHub repository](https://github.com/takahashiyb/Frontend-quiz-app)
+- Live Site URL: [click here for Live Site](https://takahashiyb.github.io/Frontend-quiz-app/index.html)
 
 ## My process
 

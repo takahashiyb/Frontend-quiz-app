@@ -20,7 +20,7 @@ function loadCategories() {
         const container = document.getElementById("container-display-category");
 
         container.innerHTML += `
-        <section class="button-choice ${title.toLowerCase()}"
+        <section class="button-choice ${title.toLowerCase()}" tabindex=0
         id="category-${title.toLowerCase()}"  
         role="link" 
         data-category="${title.toLowerCase()}">
@@ -38,9 +38,16 @@ function loadCategories() {
           `category-${title.toLowerCase()}`
         );
 
-        section.addEventListener("click", () => {
-          window.location.href = `./html/quiz-page.html?key=${title.toLowerCase()}&theme=${sendThemePageExit()}`;
-        });
+        ["click", "keydown"].forEach((event) =>
+          section.addEventListener(event, (event) => {
+            if (
+              event.key === "Enter" ||
+              event.key === " " ||
+              event.type === "click"
+            )
+              window.location.href = `./html/quiz-page.html?key=${title.toLowerCase()}&theme=${sendThemePageExit()}`;
+          })
+        );
       });
     });
 }

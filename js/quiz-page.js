@@ -138,6 +138,9 @@ function assignButtonSubmitAnswer() {
   button.removeEventListener("click", loadQuestion);
   button.addEventListener("click", markAnswerSubmitted);
   button.innerHTML = "Submit Answer";
+
+  const buttonA = document.getElementById("button-choice-0");
+  buttonA.focus();
 }
 
 // Checks whether: there is an answer, if the answer is correct, show correct answer when the chose answer is wrong,

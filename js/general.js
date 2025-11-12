@@ -36,9 +36,12 @@ function displayTheme(theme) {
 function assignEventSwitchThemes() {
   const switchTheme = document.getElementById("wrapper-switch-color-mode");
 
-  switchTheme.addEventListener("click", () => {
-    toggleSwitchTheme();
-  });
+  ["click", "keydown"].forEach((event) =>
+    switchTheme.addEventListener(event, (event) => {
+      if (event.key === "Enter" || event.key === " " || event.type === "click")
+        toggleSwitchTheme();
+    })
+  );
 }
 
 // handles the event for switching themes
